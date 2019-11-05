@@ -1,0 +1,36 @@
+TUGAS SQL BASIC
+1.	Buatlah tabel baru dengan ketentuan sebagai berikut :
+a.	Customer_Type
+	- [type_id] [bigint] IDENTITY(1,1) NOT NULL,
+	- [type_nama] [varchar](50) NOT NULL,
+	- [stsrc] [char](1) NOT NULL,
+	- [created_by] [varchar](20) NULL,
+	- [date_created] [datetime] NULL,
+	- [modified_by] [varchar](20) NULL,
+	- [date_modified] [datetime] NULL
+b.	Customer
+	- [cust_id] [bigint] IDENTITY(1,1) NOT NULL,
+	- [cust_nama] [varchar](50) NOT NULL,
+	- [cust_alamat] [varchar](100) NOT NULL,
+	- [cust_telp] [varchar](15) NULL,
+	- [type_id] [bigint] NOT NULL  FK TABLE customer_type,
+	- [stsrc] [char](1) NOT NULL,
+	- [created_by] [varchar](20) NULL,
+	- [date_created] [datetime] NULL,
+	- [modified_by] [varchar](20) NULL,
+	- [date_modified] [datetime] NULL
+2.	Masukkan data ke masing2 tabel pada soal nomor 1 dgn ketentuan sebagai berikut :
+a.	Tabel Customer Type diisi dengan tipe customer pada type_nama: VIP,Premium,Gold dan Silver
+b.	Tabel Customer diisi dengan data bebas sebanyak 5 baris data, di mana dari 5 baris itu terdapat 1 customer dengan tipe VIP, 1 customer dengan tipe Premium, 2 customer Gold dan 1 customer dengan tipe Silver
+c.	Setiap tabel wajib mengisi kolom stsrc dengan ‘A’, created_by dengan nama masing-masing, dan date_created dengan waktu saat data dimasukkan pada server database.
+3.	Soal Update :
+a.	Update data yang telah diisi pada nomor 2 dengan ketentuan : nama customer yang tipenya VIP menjadi  ‘Customer VIP edited’, dan wajib mengisi kolom modified_by dengan nama masing-masing, dan date_modified dengan waktu saat data diubah pada server database
+b.	Update nama entrier pengadaan (peng_entrier) menjadi nama dari supplier pengadaan tersebut (gunakan join table pengadaan_header dan supplier)
+4.	Hapus data pada nomor 2 dan 3 dengan ketentuan sebagai berikut :
+a.	Hapus data secara logikal untuk customer yang tipenya Premium dengan update kolom stsrc menjadi D dan wajib mengisi kolom modified_by dengan nama masing-masing, dan date_modified dengan waktu saat data diubah pada server database
+5.	Tampilkan tanggal pengadaan, nama supplier dan kode pengadaan dari pengadaan yang terjadi pada bulan Agustus (peng_date) dan diurut berdasarkan nama supplier secara descending
+6.	Tampilkan kode pengadaan dan total nilai pengadaan(total dari jumlah barang * harga, lihat table pengadaan_detail) yang terjadi sebelum bulan Agustus (peng_date)
+7.	Tampilkan nama item yang tidak pernah ada dalam pengadaan
+8.	Tampilkan nama item,jumlah pengadaan untuk item tersebut dengan nama alias 'Jumlah Pembelian', di mana untuk item tersebut 'Jumlah Pembelian' lebih kecil dari 100
+9.	Tampilkan row yang unik untuk kode/nomor pengadaan, nama barang, nama supplier dari pengadaan yang terjadi sebelum bulan Agustus, di mana jumlah barang yang dibeli pada pengadaan tersebut (sum dari pengd_qty) lebih dari 20, nama supplier mengandung karakter  '1'
+10.	Urutkan secara ascending nama supplier yang ada dalam pengadaan dan nilai total pengadaan terbesarnya (untuk nama supplier yang muncul hanya boleh ada satu kali dalam daftar dan memiliki nilai total pengadaan ( jumlah barang * harga) terbesar ) 
